@@ -1,0 +1,19 @@
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity ^0.8.0;
+
+import "hardhat/console.sol";
+
+contract Counter{
+    uint256  public counter;
+    address  owner;
+    constructor (uint256 x) {
+        counter = x;
+        owner = msg.sender;
+    }
+    function add(uint256 x) public  {
+        require(msg.sender==owner,"invalid call");
+        counter = counter + x;
+        console.log(counter);
+    }
+}
